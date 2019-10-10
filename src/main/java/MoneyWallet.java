@@ -1,7 +1,7 @@
 
 public class MoneyWallet {
 
-    private Money myMoney;
+    private Money myMoney = new Money();
     private static MoneyWallet moneyWallet;
 
 
@@ -9,6 +9,10 @@ public class MoneyWallet {
         if (moneyWallet == null)
             moneyWallet = new MoneyWallet();
         return moneyWallet;
+    }
+
+    private MoneyWallet() {
+        this.myMoney = new Money();
     }
 
     public Money getMyMoney() {
