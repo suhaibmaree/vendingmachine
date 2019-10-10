@@ -32,7 +32,7 @@ public class VendingMachine {
 
     }//end main method
 
-    private static Money askUserForMoney() {
+    public static Money askUserForMoney() {
 
         int c1 = display.Question("Enter shekel coin", "");
         int c2 = display.Question("Enter two shekel coin", "");
@@ -44,14 +44,15 @@ public class VendingMachine {
         return mInsertedMoney = interMoney(c1, c2, c5, c10, c20, c50, c100);
     }
 
-    private static void checkForChange(Money money, int price) {
+    public static Money checkForChange(Money money, int price) {
         int insertmoney = money.getAmount();
+        Money customerchange = new Money();
         if (!(insertmoney < price)) {
 
 
             int change = money.getAmount() - price;
             if (wallet.getMyMoney().getAmount() > change) {
-                Money customerchange = new Money();
+
 
                 while (customerchange.getAmount() <= change) {
 
@@ -63,7 +64,8 @@ public class VendingMachine {
                                 int hundredshekel = customerchange.getHundredShekel();
                                 customerchange.setHundredShekel(hundredshekel + 1);
                                 hundredshekel = wallet.getMyMoney().getHundredShekel();
-                                wallet.getMyMoney().setHundredShekel(hundredshekel - 1);
+                                if (hundredshekel > 0)
+                                    wallet.getMyMoney().setHundredShekel(hundredshekel - 1);
                             }
                             break;
                         } else
@@ -79,7 +81,8 @@ public class VendingMachine {
                                 int fiftyShekel = customerchange.getFiftyShekel();
                                 customerchange.setFiftyShekel(fiftyShekel + 1);
                                 fiftyShekel = wallet.getMyMoney().getFiftyShekel();
-                                wallet.getMyMoney().setFiftyShekel(fiftyShekel - 1);
+                                if (fiftyShekel > 0)
+                                    wallet.getMyMoney().setFiftyShekel(fiftyShekel - 1);
                             } else
                                 break;
                         } else
@@ -93,7 +96,8 @@ public class VendingMachine {
                                 int twentyShekel = customerchange.getTwentyShekel();
                                 customerchange.setTwentyShekel(twentyShekel + 1);
                                 twentyShekel = wallet.getMyMoney().getTwentyShekel();
-                                wallet.getMyMoney().setTwentyShekel(twentyShekel - 1);
+                                if (twentyShekel > 0)
+                                    wallet.getMyMoney().setTwentyShekel(twentyShekel - 1);
                             } else
                                 break;
                         } else
@@ -107,7 +111,8 @@ public class VendingMachine {
                                 int tenShekel = customerchange.getTenShekel();
                                 customerchange.setTenShekel(tenShekel + 1);
                                 tenShekel = wallet.getMyMoney().getTenShekel();
-                                wallet.getMyMoney().setTenShekel(tenShekel - 1);
+                                if (tenShekel > 0)
+                                    wallet.getMyMoney().setTenShekel(tenShekel - 1);
                             } else
                                 break;
                         } else
@@ -121,7 +126,8 @@ public class VendingMachine {
                                 int fiveShekel = customerchange.getFiveShekel();
                                 customerchange.setFiveShekel(fiveShekel + 1);
                                 fiveShekel = wallet.getMyMoney().getFiveShekel();
-                                wallet.getMyMoney().setFiveShekel(fiveShekel - 1);
+                                if (fiveShekel > 0)
+                                    wallet.getMyMoney().setFiveShekel(fiveShekel - 1);
                             } else
                                 break;
                         } else
@@ -129,13 +135,14 @@ public class VendingMachine {
                     } // end five shekel
 
                     while (true) {
-                        if (wallet.getMyMoney().getFiveShekel() > 1) {
+                        if (wallet.getMyMoney().getTwoShekel() > 1) {
                             if (customerchange.getAmount() + 2 <= change) {
 
-                                int twoshekel = customerchange.getFiveShekel();
-                                customerchange.setFiveShekel(twoshekel + 1);
+                                int twoshekel = customerchange.getTwoShekel();
+                                customerchange.setTwoShekel(twoshekel + 1);
                                 twoshekel = wallet.getMyMoney().getTwoShekel();
-                                wallet.getMyMoney().setFiveShekel(twoshekel - 1);
+                                if (twoshekel > 0)
+                                    wallet.getMyMoney().setTwoShekel(twoshekel - 1);
                             } else
                                 break;
                         } else
@@ -149,7 +156,8 @@ public class VendingMachine {
                                 int shekel = customerchange.getShekel();
                                 customerchange.setShekel(shekel + 1);
                                 shekel = wallet.getMyMoney().getShekel();
-                                wallet.getMyMoney().setShekel(shekel - 1);
+                                if (shekel > 0)
+                                    wallet.getMyMoney().setShekel(shekel - 1);
                             } else
                                 break;
                         } else
@@ -161,42 +169,50 @@ public class VendingMachine {
 
                 int CC = customerchange.getAmount();
                 if (CC == change) {
-                    display.information("Thanks for ordering, Your change is: " +
-                            "\nShekel: " + customerchange.getShekel() +
-                            "\nTwo shekel: " + customerchange.getTwoShekel() +
-                            "\nFive Shekel: " + customerchange.getFiveShekel() +
-                            "\nTen Shekel: " + customerchange.getTenShekel() +
-                            "\ntwenty Shekel: " + customerchange.getTwentyShekel() +
-                            "\nFifty Shekel: " + customerchange.getFiftyShekel() +
-                            "\nHundred Shekel: " + customerchange.getHundredShekel());
-                } else {
+//                    display.information("Thanks for ordering, Your change is: " +
+//                            "\nShekel: " + customerchange.getShekel() +
+//                            "\nTwo shekel: " + customerchange.getTwoShekel() +
+//                            "\nFive Shekel: " + customerchange.getFiveShekel() +
+//                            "\nTen Shekel: " + customerchange.getTenShekel() +
+//                            "\ntwenty Shekel: " + customerchange.getTwentyShekel() +
+//                            "\nFifty Shekel: " + customerchange.getFiftyShekel() +
+//                            "\nHundred Shekel: " + customerchange.getHundredShekel());
+                    customerchange.message = "his change is: " + customerchange.getAmount();
 
+                    return customerchange;
                 }
-
+                else
+                    customerchange.message = "Sorry there is no Change enough";
             }// if check is there wallet money for change
             else
-                display.information("Sorry there is no Change enough");
+//                display.information("Sorry there is no Change enough");
+                customerchange.message = "Sorry there is no Change enough";
+            return customerchange;
         }// end if statement for the insert money is more than the order price
         else
-            display.information("Inserted money not enough for your order");
+//            display.information("Inserted money not enough for your order");
+            customerchange.message = "Inserted money not enough for your order";
+        return customerchange;
 
 
     }// end check method
 
-    private static Money interMoney(int c1, int c2, int c5, int c10, int c20, int c50, int c100) {
+    public static Money interMoney(int c1, int c2, int c5, int c10, int c20, int c50, int c100) {
         return new Money(c1, c2, c5, c10, c20, c50, c100);
     }
 
-    private static boolean checkOrder(int order) {
-        if (order < 0 || order > 5) {
-            display.information(String.valueOf(order) + " is wrong");
+    public static boolean checkOrder(int order) {
+        if (order < 0 || order > 5)
+            //display.information(String.valueOf(order) + " is wrong");
             return false;
-        } else
-            display.information(String.valueOf("Your choice is: " + order + " click okay to continue"));
+
+        if (itemHolder.getItemList().get(order).getQuantity() > 0)
+            return false;
+        //display.information(String.valueOf("Your choice is: " + order + " click okay to continue"));
         return true;
     }
 
-    private static int selectOrder() {
+    public static int selectOrder() {
         int order = display.Question(menu,
                 "");
         return order;

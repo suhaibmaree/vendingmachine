@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="VendingMachineTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-10-10T11:54:01" hostname="DESKTOP-JNSF0FA" time="0.195">
+  <properties/>
+  <testcase name="sequentialOrders" classname="VendingMachineTest" time="0.195"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

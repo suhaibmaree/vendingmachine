@@ -6,6 +6,7 @@ public class Money {
     private int twentyShekel;
     private int fiftyShekel;
     private int hundredShekel;
+    public String message;
 
     public Money() {
         this.shekel = 0;
@@ -87,5 +88,12 @@ public class Money {
 
     public void setHundredShekel(int hundredShekel) {
         this.hundredShekel = hundredShekel;
+    }
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }
