@@ -39,7 +39,7 @@ public class VendingMachineTest {
     }
 
     @Test
-    public void InsertEnoughMoneyAndEnoughWallet() throws Exception {
+    public void InsertEnoughMoneyAndEnoughWallet() throws Exception { // fails
 
         Money money = new Money(1, 4, 0, 1, 0, 0, 0);
         wallet.setMyMoney(new Money(100, 100, 100, 100, 100, 100, 100));

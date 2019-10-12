@@ -1,4 +1,4 @@
-public class Money {
+public class Money {// try using enum with baseline value
     private int shekel;
     private int twoShekel;
     private int fiveShekel;

@@ -1,5 +1,7 @@
 public class VendingMachine {
 
+    // split into interface and an implementation
+
     public static int mOrder = 0;
     public static Money mInsertedMoney = new Money();
     public static String menu = "Enter your order number please\n1. Coffee\n2. Nescafe\n3. Milk\n4. Tea\n5. Water";
@@ -8,7 +10,7 @@ public class VendingMachine {
     public static ItemHolder itemHolder = ItemHolder.getInstance();
     public static MoneyWallet wallet = MoneyWallet.getInstance();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) {// dont mix main method with VM impl .
 
         wallet.setMyMoney(new Money(100, 100, 100, 100, 100, 100, 100));
 
@@ -67,7 +69,7 @@ public class VendingMachine {
                                 if (hundredshekel > 0)
                                     wallet.getMyMoney().setHundredShekel(hundredshekel - 1);
                             }
-                            break;
+                            break; // dont break , continue
                         } else
                             break;
 

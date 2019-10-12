@@ -1,7 +1,7 @@
 
 public class MoneyWallet {
 
-    private Money myMoney = new Money();
+    private Money myMoney = new Money(); // try build a hashmap
     private static MoneyWallet moneyWallet;
 
 

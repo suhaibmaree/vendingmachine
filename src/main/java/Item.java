@@ -1,8 +1,10 @@
 public class Item {
 
+    // i suggest items to be enums
+
     private String name;
-    private int id;
-    private int price;
+    private int id; // try connect to the object representing the user input
+    private int price; // int is arbitrary and doesnt relate to base currency or baseline value
     private int quantity;
 
     public Item(int id, int price, int quantity) {
