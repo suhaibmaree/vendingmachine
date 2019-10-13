@@ -1,13 +1,13 @@
 import javax.swing.*;
 
-public class Display {
+public class JFrameDisplay implements DisplayInterface{
 
-    private static Display display;
+    private static JFrameDisplay display ;
     private JFrame frame = new JFrame();
 
-    public static Display getInstance() {
+    public static JFrameDisplay getInstance() {
         if (display == null)
-            display = new Display();
+            display = new JFrameDisplay();
         return display;
     }
 
@@ -22,7 +22,7 @@ public class Display {
 
        if (value == null)
        return 0;
-       if (value == "")
+       if (value.equals(""))
            return 0;
        int n = Integer.parseInt(value);
         return n;

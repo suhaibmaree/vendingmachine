@@ -37,4 +37,19 @@ public class ItemHolder {
         ItemHolder.itemList = itemList;
     }
 
+    public Item getItem(int id){
+        for (Item item : itemList){
+            if (id == item.getId())
+                return item;
+        }
+        return null;
+    }
+
+    public void removeItem(Item item) {
+
+        for (int i =0; i<itemList.size();i++){
+            if (item.getId() == itemList.get(i).getId())
+                itemList.get(i).setQuantity(item.getQuantity()-1);
+        }
+    }
 }

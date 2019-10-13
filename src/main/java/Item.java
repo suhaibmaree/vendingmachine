@@ -2,13 +2,15 @@ public class Item {
 
     private String name;
     private int id;
-    private int price;
+    private Money price;
     private int quantity;
 
-    public Item(int id, int price, int quantity) {
+    public Item(int id, int price, int quantity, String name) {
         this.id = id;
-        this.price = price;
+        this.price = new Money();
+        this.price.setShekel(price);
         this.quantity = quantity;
+        this.name = name;
     }
 
     public String getName() {
@@ -28,11 +30,11 @@ public class Item {
     }
 
     public int getPrice() {
-        return price;
+        return price.getShekel();
     }
 
     public void setPrice(int price) {
-        this.price = price;
+        this.price.setShekel(price);
     }
 
     public int getQuantity() {
@@ -41,5 +43,15 @@ public class Item {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "name='" + name + '\'' +
+                ", id=" + id +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                '}';
     }
 }

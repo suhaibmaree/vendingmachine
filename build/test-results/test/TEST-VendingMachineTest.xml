@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="VendingMachineTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-10-10T11:54:01" hostname="DESKTOP-JNSF0FA" time="0.195">
+<testsuite name="VendingMachineTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-10-13T14:19:55" hostname="users-MacBook-Pro.local" time="0.015">
   <properties/>
-  <testcase name="sequentialOrders" classname="VendingMachineTest" time="0.195"/>
-  <system-out><![CDATA[]]></system-out>
+  <testcase name="flowTest" classname="VendingMachineTest" time="0.015"/>
+  <system-out><![CDATA[Order{item=Item{name='Coffee', id=1, price=Money@470c379d, quantity=0}, moneyHash=MoneyHash{coins={TWENTYSHEKEL=0, FIFTYSHEKEL=0, SHEKEL=0, HUNDREDSHEKEL=0, TWOSHEKEL=2, FIVESHEKEL=0, TENSHEKEL=1}}}**************
+Coffee : 0
+NesCafe : 5
+Milk : 5
+Tea : 0
+Water : 5
+MoneyWallet{myMoney=MoneyHash{coins={TWENTYSHEKEL=100, FIFTYSHEKEL=100, SHEKEL=101, HUNDREDSHEKEL=100, TWOSHEKEL=102, FIVESHEKEL=100, TENSHEKEL=100}}}
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

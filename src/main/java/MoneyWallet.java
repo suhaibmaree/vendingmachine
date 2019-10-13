@@ -1,7 +1,7 @@
 
 public class MoneyWallet {
 
-    private Money myMoney = new Money();
+    private MoneyHash myMoney = new MoneyHash();
     private static MoneyWallet moneyWallet;
 
 
@@ -12,15 +12,34 @@ public class MoneyWallet {
     }
 
     private MoneyWallet() {
-        this.myMoney = new Money();
+        this.myMoney = new MoneyHash();
     }
 
-    public Money getMyMoney() {
+    public MoneyHash getMyMoney() {
         return myMoney;
     }
 
-    public void setMyMoney(Money myMoney) {
+    public void setMyMoney(MoneyHash myMoney) {
         this.myMoney = myMoney;
     }
+
+    public void rollback(MoneyHash customerChange) {
+       myMoney.setShekel( myMoney.getShekel()+customerChange.getShekel());
+       myMoney.setTwoShekel(myMoney.getTwoShekel()+customerChange.getTwoShekel());
+       myMoney.setFiveShekel(myMoney.getFiveShekel()+customerChange.getFiveShekel());
+       myMoney.setTenShekel(myMoney.getTenShekel()+customerChange.getTenShekel());
+       myMoney.setTwentyShekel(myMoney.getTwentyShekel()+customerChange.getTwentyShekel());
+       myMoney.setFiftyShekel(myMoney.getFiftyShekel()+customerChange.getFiftyShekel());
+       myMoney.setHundredShekel(myMoney.getHundredShekel()+customerChange.getHundredShekel());
+
+    }
+
+    @Override
+    public String toString() {
+        return "MoneyWallet{" +
+                "myMoney=" + myMoney +
+                '}';
+    }
+
 
 }

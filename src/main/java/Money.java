@@ -18,7 +18,8 @@ public class Money {
         this.hundredShekel = 0;
     }
 
-    public Money(int shekel, int twoShekel, int fiveShekel, int tenShekel, int twentyShekel, int fiftyShekel, int hundredShekel) {
+    public Money(int shekel, int twoShekel, int fiveShekel, int tenShekel,
+                 int twentyShekel, int fiftyShekel, int hundredShekel) {
 
         this.shekel = shekel;
         this.twoShekel = twoShekel;
@@ -30,7 +31,9 @@ public class Money {
     }
 
     public int getAmount() {
-        int amount = (shekel*1)+(twoShekel*2)+(fiveShekel*5)+(tenShekel*10)+(twentyShekel*20)+(fiftyShekel*50)+(hundredShekel*100);
+        int amount = (shekel*1)+(twoShekel*2)+(fiveShekel*5)+(tenShekel*10)+
+                (twentyShekel*20)+(fiftyShekel*50)+(hundredShekel*100);
+
         return amount;
     }
 
